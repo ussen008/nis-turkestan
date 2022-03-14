@@ -1,0 +1,33 @@
+{% extends 'studentapp/base.html' %}
+
+{% load static %}
+{% block extrahead %}
+
+{% endblock%}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        {% for single_klass in indv_klass %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+
+            <div class="card">
+                <img src="{% static 'img/person-jpg.png'%}" class="card-img-top img-thumbnail" alt="" width="80"
+                    height="">
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a href="{% url 'student' student.pk %}">{{student.first_name}}
+                            {{student.last_name}}</a></h4>
+                    <h6 class="card-subtitle text-center"><a href="">7A</a></h6>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}

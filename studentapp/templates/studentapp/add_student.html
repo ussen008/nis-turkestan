@@ -1,0 +1,116 @@
+{% extends 'studentapp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+  <!-- Optional JavaScript; choose one of the two! -->
+  
+<div class="container p-4" style="background-color: #fff;">
+
+    <form method="post" class="form-group" enctype="multipart/form-data">
+        <h2>Добавить ученика</h2>
+        {% csrf_token %}
+        <div class="form-row">
+            
+            <div class="form-group col-md-6">
+                {{student_form.full_name|as_crispy_field:"bootstrap"}}
+            </div>
+          <div class="form-group col-md-6">
+                {{student_form.IIN|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_nationality|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_date_of_birth|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_age|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_gender|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_email|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_tel|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+            {{student_form.category_class|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.learning_lang|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.category_fam|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.disability|as_crispy_field}}
+            </div>
+        </div>
+            {{student_form.stud_photo|as_crispy_field}}
+
+                {{student_form.father_full_name|as_crispy_field}}
+        <div class="form-row form-border">
+            <div class="form-group col-md-6">
+                {{student_form.father_educ|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.father_pos|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.father_org|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.father_tel|as_crispy_field}}
+            </div>
+        </div>
+                {{student_form.mother_full_name|as_crispy_field}}
+        <div class="form-row form-border">
+            <div class="form-group col-md-6">
+                {{student_form.mother_educ|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.mother_pos|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.mother_org|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.mother_tel|as_crispy_field}}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{student_form.large_family|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.childs_in_family|as_crispy_field}}
+            </div>
+        </div>
+            {{student_form.adress|as_crispy_field}}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{student_form.kurator|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.stud_tutor|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6">
+                {{student_form.vospitatel|as_crispy_field}}
+            </div>
+        </div> 
+        
+        <button type="submit" class="btn btn-success">Сохранить</button>
+
+
+    </form>
+</div> 
+{% endblock %}

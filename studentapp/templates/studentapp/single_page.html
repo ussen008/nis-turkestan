@@ -1,0 +1,243 @@
+{% extends 'studentapp/base.html' %}
+
+{% load static %}
+
+{% block extrahead %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock%}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<header id="main-header">
+  <div class="row no-gutters">
+    <div class="col-lg-4 col-md-5">
+      <div class="for-photo">
+        {% if student.stud_photo %}
+        <img src="{{student.stud_photo.url}}" alt="student's photo">
+        {% endif %}
+      </div>
+        
+      
+    </div>
+    <div class="col-lg-8 col-md-7">
+      <div class="d-flex flex-column">
+        <div class="p-5 bg-dark text-white">
+          <div class="d-flex flex-row justify-content-between align-items-center">
+            <h1 class="display-4">{{ student.full_name }} </h1>
+            <div class="d-none d-md-block">
+              <a href="#" class="text-white">
+                <i class="fas fa-user-friends"></i>
+              </a>
+            </div>
+            <div>
+              <a href="#" class="text-white">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </div>
+            <div>
+              <a href="#" class="text-white">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-black">
+          {{student.klass}} {{student.letter}}
+        </div>
+        <div>
+          <div class="d-flex flex-row text-white align-items-stretch text-center">
+            <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#private">
+              <i class="fas fa-user-lock fa-2x d-block"></i>
+              <span class="d-none d-sm-block">Личные данные</span>
+            </div>
+
+            <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#family">
+              <i class="fas fa-home fa-2x d-block"></i>
+              <span class="d-none d-sm-block">Семья</span>
+            </div>
+
+            <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#curator">
+              <i class="fas fa-folder-open fa-2x d-block"></i>
+              <span class="d-none d-sm-block">Home</span>
+            </div>
+            <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#project">
+              <i class="fas fa-envelope fa-2x d-block"></i>
+              <span class="d-none d-sm-block">Contact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- HOME-->
+<div id="private" class="collapse show">
+  <div class="card card-body py-5">
+    <h2 class="card-title text-center">Личные данные</h2>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ИИН: </strong></li>
+            <li class="list-group-item "><strong>Национальность: </strong></li>
+            <li class="list-group-item "><strong>Дата рождения: </strong></li>
+            <li class="list-group-item "><strong>Возрасть: </strong></li>
+            <li class="list-group-item "><strong>Пол: </strong></li>
+            <li class="list-group-item "><strong>Инвалидность: </strong></li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>Язык обучения: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+            <li class="list-group-item "><strong>Почта: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+            <li class="list-group-item "><strong>Почта: </strong></li>
+            <li class="list-group-item "><strong>Адресс: </strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Family-->
+<div id="family" class="collapse">
+  <div class="card card-body py-5">
+    <h3 class="text-center ">Семья</h3>
+    <div class="card-deck mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Отец</h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ФИО: </strong></li>
+            <li class="list-group-item "><strong>Образование: </strong></li>
+            <li class="list-group-item "><strong>Место работы: </strong></li>
+            <li class="list-group-item "><strong>Должность: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Мать</h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ФИО: </strong></li>
+            <li class="list-group-item "><strong>Образование: </strong></li>
+            <li class="list-group-item "><strong>Место работы: </strong></li>
+            <li class="list-group-item "><strong>Должность: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+          </ul>
+      </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Обший данные по семии</h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>Тип семии: </strong></li>
+            <li class="list-group-item "><strong>Многодетный семья: </strong></li>
+            <li class="list-group-item "><strong>Количество детей:</strong></li>
+            <li class="list-group-item "><strong>Адрес</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--new-->
+<div id="curator" class="collapse">
+  <div class="card card-body py-5">
+    <h3 class="text-center ">Обший данные</h3>
+    <div class="card-deck mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ФИО куратора: </strong></li>
+            <li class="list-group-item "><strong>Образование: </strong></li>
+            <li class="list-group-item "><strong>Дата рождения: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+            <li class="list-group-item "><strong>Почта: </strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Общежитие</h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ФИО воспитателья: </strong></li>
+            <li class="list-group-item "><strong>Образование: </strong></li>
+            <li class="list-group-item "><strong>Дата рождения: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+            <li class="list-group-item "><strong>Почта: </strong></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--Projects-->
+<div id="project" class="collapse">
+  <div class="card card-body py-5">
+    <h3 class="text-center ">Кружки</h3>
+    <div class="card-deck mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ФИО куратора: </strong></li>
+            <li class="list-group-item "><strong>Образование: </strong></li>
+            <li class="list-group-item "><strong>Дата рождения: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+            <li class="list-group-item "><strong>Почта: </strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Общежитие</h4>
+          <ul class="list-group list-group-flush bg-success">
+            <li class="list-group-item "><strong>ФИО воспитателья: </strong></li>
+            <li class="list-group-item "><strong>Образование: </strong></li>
+            <li class="list-group-item "><strong>Дата рождения: </strong></li>
+            <li class="list-group-item "><strong>Телефон: </strong></li>
+            <li class="list-group-item "><strong>Почта: </strong></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FOOTER-->
+ 
+
+ <footer id="main-footer" class="p-5 bg-dark text-white">
+    <div class="row">
+      <div class="col-md-6">
+        <a href="#" class="btn btn-outline-light">
+          <i class="fas fa-download"> Загрузить</i>
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if page.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page.previous_page_number }}">Предыдущий</a></li>
+        {% endif %}
+        <span class="current">
+            <li class="page-item"><a class="page-link" href="#">Страница {{page.number}} из
+                    {{page.paginator.num_pages}}</a>
+            </li>
+
+        </span>
+
+
+        {% if page.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page.next_page_number }}">Следующий</a></li>
+        {% endif %}
+    </ul>
+</nav>
